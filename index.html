@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Custom QR Code Generator | Create High Quality QR Codes</title>
+    <meta name="description" content="Generate completely free, customizable, and high-quality QR codes for URLs, text, Wi-Fi, and more. Download instantly in PNG format. No ads.">
+    <link rel="canonical" href="https://qr-generator.corelumetech.in/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://qr-generator.corelumetech.in/">
+    <meta property="og:title" content="Free Custom QR Code Generator | Create High Quality QR Codes">
+    <meta property="og:description" content="Generate completely free, customizable, and high-quality QR codes for URLs, text, Wi-Fi, and more. Download instantly in PNG format. No ads.">
+    <meta property="og:image" content="https://qr-generator.corelumetech.in/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://qr-generator.corelumetech.in/">
+    <meta property="twitter:title" content="Free Custom QR Code Generator | Create High Quality QR Codes">
+    <meta property="twitter:description" content="Generate completely free, customizable, and high-quality QR codes for URLs, text, Wi-Fi, and more. Download instantly in PNG format. No ads.">
+    <meta property="twitter:image" content="https://qr-generator.corelumetech.in/og-image.jpg">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "QR Code Generator",
+      "url": "https://qr-generator.corelumetech.in/",
+      "description": "Free tool to instantly generate custom QR codes for URLs, text, and more.",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0"
+      }
+    }
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- QRCode.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://quge5.com/88/tag.min.js" data-zone="265070" async data-cfasync="false"></script>
+</head>
+<body>
+    <div class="app-container">
+
+
+        <main class="generator-wrapper">
+            <div class="card settings-card">
+                <h1><i class="fa-solid fa-qrcode"></i> QR Generator</h1>
+                <p class="subtitle">Create and customize your QR codes instantly.</p>
+
+                <div class="input-group">
+                    <label for="qr-text">Website URL or Text</label>
+                    <textarea id="qr-text" placeholder="https://example.com" rows="3"></textarea>
+                </div>
+
+                <div class="color-options">
+                    <div class="input-group color-group">
+                        <label for="color-dark">QR Color</label>
+                        <input type="color" id="color-dark" value="#000000">
+                    </div>
+                    <div class="input-group color-group">
+                        <label for="color-light">Background</label>
+                        <input type="color" id="color-light" value="#ffffff">
+                    </div>
+                </div>
+
+                <button class="btn-primary" id="btn-generate">Generate QR Code</button>
+            </div>
+
+            <div class="card result-card">
+                <h2>Your QR Code</h2>
+                <div class="qr-container" id="qrcode">
+                    <!-- QR code will be rendered here -->
+                    <div class="placeholder-text">Enter text and click Generate</div>
+                </div>
+                
+                <button class="btn-secondary" id="btn-download" disabled>
+                    <i class="fa-solid fa-download"></i> Download PNG
+                </button>
+            </div>
+
+        </main>
+
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
