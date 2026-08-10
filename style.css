@@ -17,12 +17,19 @@
 }
 
 body {
-    background-color: var(--bg-color);
-    color: var(--text-primary);
+    background: linear-gradient(-45deg, #0f172a, #4a044e, #0f172a, #0284c7);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: #f8fafc;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     padding: 20px;
+}
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .app-container {
@@ -45,12 +52,13 @@ body {
     flex-wrap: wrap;
 }
 
-.card {
-    background-color: var(--card-bg);
+.card, .main-content {
+    background: rgba(15, 23, 42, 0.4);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     border-radius: 16px;
     padding: 30px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-    border: 1px solid var(--border-color);
     display: flex;
     flex-direction: column;
 }
