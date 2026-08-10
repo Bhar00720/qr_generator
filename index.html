@@ -48,15 +48,77 @@
 <body>
     <div class="app-container">
 
-
         <main class="generator-wrapper">
             <div class="card settings-card">
                 <h1><i class="fa-solid fa-qrcode"></i> QR Generator</h1>
                 <p class="subtitle">Create and customize your QR codes instantly.</p>
 
                 <div class="input-group">
-                    <label for="qr-text">Website URL or Text</label>
-                    <textarea id="qr-text" placeholder="https://example.com" rows="3"></textarea>
+                    <label for="qr-type">QR Code Type</label>
+                    <select id="qr-type" class="form-control">
+                        <option value="url">URL / Text</option>
+                        <option value="wifi">WiFi</option>
+                        <option value="vcard">vCard</option>
+                        <option value="email">Email</option>
+                        <option value="sms">SMS</option>
+                    </select>
+                </div>
+
+                <!-- URL / Text -->
+                <div id="inputs-url" class="type-inputs active">
+                    <div class="input-group">
+                        <label for="qr-text">Website URL or Text</label>
+                        <textarea id="qr-text" class="form-control" placeholder="https://example.com" rows="3"></textarea>
+                    </div>
+                </div>
+
+                <!-- WiFi -->
+                <div id="inputs-wifi" class="type-inputs">
+                    <div class="input-group">
+                        <label for="wifi-ssid">Network Name (SSID)</label>
+                        <input type="text" id="wifi-ssid" class="form-control" placeholder="MyWiFiNetwork">
+                    </div>
+                    <div class="input-group">
+                        <label for="wifi-password">Password</label>
+                        <input type="password" id="wifi-password" class="form-control" placeholder="Password">
+                    </div>
+                    <div class="input-group">
+                        <label for="wifi-encryption">Encryption</label>
+                        <select id="wifi-encryption" class="form-control">
+                            <option value="WPA">WPA/WPA2</option>
+                            <option value="WEP">WEP</option>
+                            <option value="nopass">None</option>
+                        </select>
+                    </div>
+                    <div class="input-group checkbox-group">
+                        <label>
+                            <input type="checkbox" id="wifi-hidden"> Hidden Network
+                        </label>
+                    </div>
+                </div>
+
+                <!-- vCard -->
+                <div id="inputs-vcard" class="type-inputs">
+                    <div class="input-row">
+                        <div class="input-group"><label>First Name</label><input type="text" id="vcard-fname" class="form-control"></div>
+                        <div class="input-group"><label>Last Name</label><input type="text" id="vcard-lname" class="form-control"></div>
+                    </div>
+                    <div class="input-group"><label>Phone</label><input type="tel" id="vcard-phone" class="form-control"></div>
+                    <div class="input-group"><label>Email</label><input type="email" id="vcard-email" class="form-control"></div>
+                    <div class="input-group"><label>Company</label><input type="text" id="vcard-company" class="form-control"></div>
+                </div>
+
+                <!-- Email -->
+                <div id="inputs-email" class="type-inputs">
+                    <div class="input-group"><label>Email Address</label><input type="email" id="email-to" class="form-control"></div>
+                    <div class="input-group"><label>Subject</label><input type="text" id="email-sub" class="form-control"></div>
+                    <div class="input-group"><label>Message</label><textarea id="email-msg" class="form-control" rows="2"></textarea></div>
+                </div>
+
+                <!-- SMS -->
+                <div id="inputs-sms" class="type-inputs">
+                    <div class="input-group"><label>Phone Number</label><input type="tel" id="sms-phone" class="form-control"></div>
+                    <div class="input-group"><label>Message</label><textarea id="sms-msg" class="form-control" rows="2"></textarea></div>
                 </div>
 
                 <div class="color-options">
@@ -87,9 +149,19 @@
 
         </main>
 
+        <div class="card batch-card">
+            <h2><i class="fa-solid fa-layer-group"></i> Batch QR Generator</h2>
+            <p class="subtitle">Paste multiple strings (one per line) to generate multiple QR codes at once.</p>
+            <div class="input-group">
+                <textarea id="batch-text" class="form-control" rows="5" placeholder="https://example.com/1&#10;https://example.com/2"></textarea>
+            </div>
+            <button class="btn-primary" id="btn-batch-generate">Generate Batch QRs</button>
+            <div id="batch-results" class="batch-results"></div>
+        </div>
+
         <div class="seo-footer card">
             <h2>Free Custom QR Code Generator</h2>
-            <p>Our free QR code generator is a simple, fast, and easy-to-use custom QR maker. Convert your URL to QR code instantly. Download high-quality QR codes in PNG format for free.</p>
+            <p>Our free QR code generator is a simple, fast, and easy-to-use custom QR maker. Convert your URL, Wi-Fi, vCard, Email, and SMS to QR code instantly. Download high-quality QR codes in PNG format for free.</p>
         </div>
 
     </div>
