@@ -51,6 +51,21 @@ document.addEventListener('DOMContentLoaded', () => {
         return '';
     }
 
+    let logoImage = null;
+    document.getElementById('qr-logo').addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if(!file) {
+            logoImage = null;
+            return;
+        }
+        const reader = new FileReader();
+        reader.onload = (event) => {
+            logoImage = new Image();
+            logoImage.src = event.target.result;
+        };
+        reader.readAsDataURL(file);
+    });
+
     btnGenerate.addEventListener('click', () => {
         const text = getQRText();
         
@@ -62,20 +77,49 @@ document.addEventListener('DOMContentLoaded', () => {
         // Clear previous QR code
         qrcodeContainer.innerHTML = '';
         
+        const size = 512; // High-res output
+        
         // Generate new QR code
         new QRCode(qrcodeContainer, {
             text: text,
-            width: 256,
-            height: 256,
+            width: size,
+            height: size,
             colorDark: colorDark.value,
             colorLight: colorLight.value,
             correctLevel: QRCode.CorrectLevel.H
         });
 
-        // Enable download button
+        // Enable download button and apply logo
         setTimeout(() => {
+            const canvas = qrcodeContainer.querySelector('canvas');
+            if(canvas && logoImage) {
+                const ctx = canvas.getContext('2d');
+                const logoSize = size * 0.25; // Logo takes up 25% of QR width
+                const x = (size - logoSize) / 2;
+                const y = (size - logoSize) / 2;
+                
+                // Draw a background square for the logo
+                ctx.fillStyle = colorLight.value;
+                ctx.fillRect(x - 10, y - 10, logoSize + 20, logoSize + 20);
+                
+                // Draw Logo
+                ctx.drawImage(logoImage, x, y, logoSize, logoSize);
+                
+                // Update the img element that qrcode.js optionally displays
+                const img = qrcodeContainer.querySelector('img');
+                if(img) {
+                    img.src = canvas.toDataURL("image/png");
+                }
+            }
             btnDownload.disabled = false;
-        }, 100);
+            
+            // Adjust visual size so it fits in the container visually
+            if(canvas) canvas.style.width = "100%";
+            if(canvas) canvas.style.height = "auto";
+            const imgEl = qrcodeContainer.querySelector('img');
+            if(imgEl) imgEl.style.width = "100%";
+            if(imgEl) imgEl.style.height = "auto";
+        }, 150);
     });
 
     btnDownload.addEventListener('click', () => {
