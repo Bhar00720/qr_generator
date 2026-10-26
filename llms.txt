@@ -1,0 +1,37 @@
+# Free QR Code Generator — No Sign Up, Instant High-Res Download
+
+> Free QR Code Generator is a client-side utility to create permanent, high-resolution QR codes for URLs, WiFi networks, vCards, SMS, and emails with custom center logos and colors.
+
+Website: https://qr-generator.corelumetech.in/
+Developer & Publisher: Corelume Tech (https://corelumetech.in)
+Privacy Policy: 100% Client-Side Processing. No user data, files, or strings are collected, stored, or transmitted to any server.
+
+## Overview
+Free QR Code Generator is a client-side utility to create permanent, high-resolution QR codes for URLs, WiFi networks, vCards, SMS, and emails with custom center logos and colors.
+
+## Core Features
+- Custom center logo embedding with high error correction (Level H)
+- Permanent QR codes with zero expiration date and no sign-up required
+- Dynamic QR presets: URLs, Wi-Fi passwords, vCard contact cards, pre-filled emails, and SMS
+- Custom foreground and background color palette customization
+- Batch QR code generation for processing multiple links simultaneously
+- High-resolution 512x512 PNG download ready for digital and print media
+
+## Benchmarks & Technical Specifications
+- 100% Permanent QR codes (no redirects or subscription lockouts)
+- 512x512 Ultra-high-resolution canvas rendering
+- Level H Error Correction (supports up to 30% logo coverage)
+- Zero tracking, zero cookies, 100% private client-side generation
+
+## Ecosystem Tools by Corelume Tech
+- Omni Calculator: https://calculator.corelumetech.in/
+- Color Master: https://color-generator.corelumetech.in/
+- Dev Tools: https://dev-tools.corelumetech.in/
+- Password Generator: https://password-generator.corelumetech.in/
+- QR Code Generator: https://qr-generator.corelumetech.in/
+- Text Utilities: https://text-tools.corelumetech.in/
+
+## Links & Discovery
+- Homepage: https://qr-generator.corelumetech.in/
+- Sitemap: https://qr-generator.corelumetech.in/sitemap.xml
+- Robots: https://qr-generator.corelumetech.in/robots.txt
